@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    ping-rb (0.1.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  ping-rb!
+
+BUNDLED WITH
+   2.3.15

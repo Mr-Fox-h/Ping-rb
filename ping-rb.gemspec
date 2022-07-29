@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Meisam Heidari']
   s.email       = 'mr.fox@iran.ir'
   s.files       = ['lib/ping-rb.rb']
-  s.homepage    = 'https://rubygems.org/gems/ping-rb'
+  s.homepage    = 'https://github.com/Mr-Fox-h/Ping-rb'
 
   s.license = 'MIT'
 
