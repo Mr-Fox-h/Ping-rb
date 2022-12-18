@@ -4,109 +4,110 @@ require 'colorize'
 
 options = {}
 OptionParser.new do |opts|
+
   # NOTE: Explain the Ping-rb
-  opts.banner = "Explain: Send ICMP ECHO_REQUEST to network hosts\n------------------------------------------------\nAuthor: Meisam Heidari\nGithub: https://github.com/Mr-Fox-h\nGitlab: https://gitlab.com/mr-fox-h\nBitbucket: https://bitbucket.org/mr-fox-h\n------------------------------------------------\n"
+  opts.banner = "Explain: Send ICMP ECHO_REQUEST to network hosts\nVERSION 0.2.2\n------------------------------------------------\nAuthor: Meisam Heidari\nGithub: https://github.com/Mr-Fox-h\nGitlab: https://gitlab.com/mr-fox-h\nBitbucket: https://bitbucket.org/mr-fox-h\n------------------------------------------------\n"
+
   # NOTE: Ping the external IP/DNS
   opts.on('-e', '--external NAME', 'External ping') do |host_external_option|
     puts "\nPing the external IP\n----------------------------------\n"
-    print 'Count: '
-    count = gets.chomp.to_s
-    puts "IP\t\t\t   statuse\n----------------|-----------------"
-    if %w[l L loop Loop LOOP].include?(count)
-      loop do
-        check = Net::Ping::External.new(host_external_option)
-        if check.ping? == true
-          puts host_external_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_external_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
-      end
-    else
-      count.to_i.times do
-        check = Net::Ping::External.new(host_external_option)
-        if check.ping? == true
-          puts host_external_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_external_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
+    4.times do
+      check = Net::Ping::External.new(host_external_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_external_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_external_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
       end
     end
   end
+
   # NOTE: Ping the HTTP address
   opts.on('-h', '--http NAME', 'HTTP ping') do |host_http_option|
     puts "\nPing the HTTP ADDRESS\n----------------------------------\n"
-    print 'Count: '
-    count = gets.chomp.to_s
-    puts "Address\t\t\t   statuse\n----------------|-----------------"
-    if %w[l L loop Loop LOOP].include?(count)
-      loop do
-        check = Net::Ping::External.new(host_http_option)
-        if check.ping? == true
-          puts host_http_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_http_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
-      end
-    else
-      count.to_i.times do
-        check = Net::Ping::External.new(host_http_option)
-        if check.ping? == true
-          puts host_http_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_http_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
+    4.times do
+      check = Net::Ping::External.new(host_http_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_http_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_http_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
       end
     end
   end
+
   # NOTE: Ping the TCP ADDRESS/IP
   opts.on('-t', '--tcp NAME', 'TCP ping') do |host_tcp_option|
-    puts "\nPing the  ADDRESS/IP\n----------------------------------\n"
-    print 'Count: '
-    count = gets.chomp.to_s
-    puts "Address/IP\t\t   statuse\n----------------|-----------------"
-    if %w[l L loop Loop LOOP].include?(count)
-      loop do
-        check = Net::Ping::External.new(host_tcp_option)
-        if check.ping? == true
-          puts host_tcp_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_tcp_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
-      end
-    else
-      count.to_i.times do
-        check = Net::Ping::External.new(host_tcp_option)
-        if check.ping? == true
-          puts host_tcp_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_tcp_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
+    puts "\nPing the TCP ADDRESS/IP\n----------------------------------\n"
+    4.to_i.times do
+      check = Net::Ping::External.new(host_tcp_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_tcp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_tcp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
       end
     end
   end
+
   # NOTE: Ping the UDP ADDRESS/IP
   opts.on('-u', '--udp NAME', 'UDP ping') do |host_udp_option|
-    puts "\nPing the  ADDRESS/IP\n----------------------------------\n"
-    print 'Count: '
-    count = gets.chomp.to_s
-    puts "Address/IP\t\t   statuse\n----------------|-----------------"
-    if %w[l L loop Loop LOOP].include?(count)
-      loop do
-        check = Net::Ping::External.new(host_udp_option)
-        if check.ping? == true
-          puts host_udp_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_udp_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
+    puts "\nPing the UDP ADDRESS/IP\n----------------------------------\n"
+    4.to_i.times do
+      check = Net::Ping::External.new(host_udp_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_udp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_udp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
       end
-    else
-      count.to_i.times do
-        check = Net::Ping::External.new(host_udp_option)
-        if check.ping? == true
-          puts host_udp_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-        else
-          puts host_udp_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-        end
+    end
+  end
+
+  # NOTE: Ping the External IP/DNS (loop mode)
+  opts.on('--external-loop NAME', 'External ping (LOOP MODE)') do |host_external_loop_option|
+    puts "\nPing the external IP (LOOP MODE)\n----------------------------------\n"
+    loop do
+      check = Net::Ping::External.new(host_external_loop_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_external_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_external_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+      end
+    end
+  end
+
+  # NOTE: Ping the HTTP address (loop mode)
+  opts.on('--http-loop NAME', 'HTTP ping (LOOP MODE)') do |host_http_loop_option|
+    puts "\nPing the HTTP ADDRESS (LOOP MODE)\n----------------------------------\n"
+    loop do
+      check = Net::Ping::External.new(host_http_loop_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_http_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_http_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+      end
+    end
+  end
+
+  # NOTE: Ping the TCP address/IP (loop mode)
+  opts.on('--tcp-loop NAME', 'TCP ping (LOOP MODE)') do |host_tcp_loop_option|
+    puts "\nPing the TCP ADDRESS/IP (LOOP MODE)\n----------------------------------\n"
+    loop do
+      check = Net::Ping::External.new(host_tcp_loop_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_tcp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_tcp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+      end
+    end
+  end
+
+  # NOTE: Ping the UDP ADDRESS/IP (loop mode)
+  opts.on('--udp-loop NAME', 'UDP ping (LOOP MODE)') do |host_udp_loop_option|
+    puts "\nPing the UDP ADDRESS/IP (LOOP MODE)\n----------------------------------\n"
+    loop do
+      check = Net::Ping::External.new(host_udp_loop_option)
+      if check.ping? == true
+        puts "ADDRESS IS " + host_udp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+      else
+        puts "ADDRESS IS " + host_udp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
       end
     end
   end
@@ -140,6 +141,7 @@ OptionParser.new do |opts|
       p check.exception
     end
   end
+
   # NOTE: Verbose command for HTTP ping
   opts.on('--verbose-h NAME', 'Verbose output for HTTP ping') do |host_verbose_http_option|
     check = Net::Ping::HTTP.new(host_verbose_http_option)
@@ -169,6 +171,7 @@ OptionParser.new do |opts|
       p check.exception
     end
   end
+
   # NOTE: Verbose command for TCP ping
   opts.on('--verbose-t NAME', 'Verbose output for TCP ping') do |host_verbose_tcp_option|
     check = Net::Ping::TCP.new(host_verbose_tcp_option)
@@ -198,6 +201,7 @@ OptionParser.new do |opts|
       p check.exception
     end
   end
+
   # NOTE: Verbose command for UDP ping
   opts.on('--verbose-u NAME', 'Verbose output for UDP ping') do |host_verbose_udp_option|
     check = Net::Ping::TCP.new(host_verbose_udp_option)
@@ -227,6 +231,7 @@ OptionParser.new do |opts|
       p check.exception
     end
   end
+
   # NOTE: Help option
   opts.on('-a', '--aid', '--help', 'Print this help') do
     puts opts

@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'ping-rb'
   s.executables = ['ping-rb']
-  s.version     = '0.2.1'
+  s.version     = '0.2.2'
   s.executables = 'ping-rb'
   s.summary     = 'Ping with Ruby!'
   s.description = "It's a simple CLI tool, but it is a useful tool to ping computers and systems."
