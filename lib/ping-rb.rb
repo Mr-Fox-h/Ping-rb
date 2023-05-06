@@ -14,9 +14,11 @@ OptionParser.new do |opts|
     4.times do
       check = Net::Ping::External.new(host_external_option)
       if check.ping? == true
-        puts "ADDRESS IS " + host_external_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        puts "\aADDRESS IS " + host_external_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
-        puts "ADDRESS IS " + host_external_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        puts "\aADDRESS IS " + host_external_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -27,9 +29,11 @@ OptionParser.new do |opts|
     4.times do
       check = Net::Ping::External.new(host_http_option)
       if check.ping? == true
-        puts "ADDRESS IS " + host_http_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        puts "\aADDRESS IS " + host_http_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
-        puts "ADDRESS IS " + host_http_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        puts "\aADDRESS IS " + host_http_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -40,9 +44,11 @@ OptionParser.new do |opts|
     4.to_i.times do
       check = Net::Ping::External.new(host_tcp_option)
       if check.ping? == true
-        puts "ADDRESS IS " + host_tcp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        puts "\aADDRESS IS " + host_tcp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
-        puts "ADDRESS IS " + host_tcp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        puts "\aADDRESS IS " + host_tcp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -53,9 +59,11 @@ OptionParser.new do |opts|
     4.to_i.times do
       check = Net::Ping::External.new(host_udp_option)
       if check.ping? == true
-        puts "ADDRESS IS " + host_udp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        puts "\aADDRESS IS " + host_udp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
-        puts "ADDRESS IS " + host_udp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        puts "\aADDRESS IS " + host_udp_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -67,8 +75,10 @@ OptionParser.new do |opts|
       check = Net::Ping::External.new(host_external_loop_option)
       if check.ping? == true
         puts "ADDRESS IS " + host_external_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
         puts "ADDRESS IS " + host_external_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -80,8 +90,10 @@ OptionParser.new do |opts|
       check = Net::Ping::External.new(host_http_loop_option)
       if check.ping? == true
         puts "ADDRESS IS " + host_http_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
         puts "ADDRESS IS " + host_http_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -93,8 +105,10 @@ OptionParser.new do |opts|
       check = Net::Ping::External.new(host_tcp_loop_option)
       if check.ping? == true
         puts "ADDRESS IS " + host_tcp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
         puts "ADDRESS IS " + host_tcp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -106,8 +120,10 @@ OptionParser.new do |opts|
       check = Net::Ping::External.new(host_udp_loop_option)
       if check.ping? == true
         puts "ADDRESS IS " + host_udp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "UP".colorize(:green)
+        sleep 1
       else
         puts "ADDRESS IS " + host_udp_loop_option.to_s.colorize(:light_blue) + "| STATUS IS " + "DOWN".colorize(:red)
+        sleep 1
       end
     end
   end
@@ -116,24 +132,26 @@ OptionParser.new do |opts|
   opts.on('--verbose-e NAME', 'Verbose output for External ping') do |host_verbose_external_option|
     check = Net::Ping::External.new(host_verbose_external_option)
     if check.ping? == true
-      puts host_verbose_external_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_external_option.to_s.colorize(:light_blue)
+      puts "Status: " + "UP".colorize(:green)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
       print 'Exception: '
       p check.exception
     else
-      puts host_verbose_external_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_external_option.to_s.colorize(:light_blue)
+      puts "Status: " + "DOWN".colorize(:red)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
@@ -146,24 +164,26 @@ OptionParser.new do |opts|
   opts.on('--verbose-h NAME', 'Verbose output for HTTP ping') do |host_verbose_http_option|
     check = Net::Ping::HTTP.new(host_verbose_http_option)
     if check.ping? == true
-      puts host_verbose_http_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_http_option.to_s.colorize(:light_blue)
+      puts "Status: " + "UP".colorize(:green)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
       print 'Exception: '
       p check.exception
     else
-      puts host_verbose_http_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_http_option.to_s.colorize(:light_blue)
+      puts "Status: " + "DOWN".colorize(:red)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
@@ -176,24 +196,26 @@ OptionParser.new do |opts|
   opts.on('--verbose-t NAME', 'Verbose output for TCP ping') do |host_verbose_tcp_option|
     check = Net::Ping::TCP.new(host_verbose_tcp_option)
     if check.ping? == true
-      puts host_verbose_tcp_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_tcp_option.to_s.colorize(:light_blue)
+      puts "Status: " + "UP".colorize(:green)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
       print 'Exception: '
       p check.exception
     else
-      puts host_verbose_tcp_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_tcp_option.to_s.colorize(:light_blue)
+      puts "Status: " + "DOWN".colorize(:red)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
@@ -206,24 +228,26 @@ OptionParser.new do |opts|
   opts.on('--verbose-u NAME', 'Verbose output for UDP ping') do |host_verbose_udp_option|
     check = Net::Ping::TCP.new(host_verbose_udp_option)
     if check.ping? == true
-      puts host_verbose_udp_option.to_s.colorize(:light_blue) + "\t\t\tUP".colorize(:green)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_udp_option.to_s.colorize(:light_blue)
+      puts "Status: " + "UP".colorize(:green)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
       print 'Exception: '
       p check.exception
     else
-      puts host_verbose_udp_option.to_s.colorize(:light_blue) + "\t\t\tDOWN".colorize(:red)
-      print 'Timeout:'
+      puts "Address: " + host_verbose_udp_option.to_s.colorize(:light_blue)
+      puts "Status: " + "DOWN".colorize(:red)
+      print 'Timeout: '
       p check.timeout
-      print 'Duration:'
+      print 'Duration: '
       p check.duration
-      print 'Port:'
+      print 'Port: '
       p check.port
       print 'warning: '
       p check.warning
